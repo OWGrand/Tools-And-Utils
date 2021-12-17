@@ -14,7 +14,7 @@ fi
 
 ###Arguments
 #Help
-print_help () {
+PRINT_HELP () {
 echo "Syntax: $0 [repo/project name] <Additional args> <Action args>"
 echo "-- Additional args:"
 echo "[-t | task] [task name in capital letters] [Action args]"
