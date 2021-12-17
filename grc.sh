@@ -56,4 +56,5 @@ case "${1}" in
 	*) echo -e "${RED}invalid or missing argument${ENDCOLOR}" 
 		PRINT_HELP
 		exit
+		;;
 esac
