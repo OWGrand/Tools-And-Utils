@@ -40,8 +40,8 @@ fi
 
 
 #The initialization starts from here
-$i -y update
-$i -y upgrade
+#$i -y update
+#$i -y upgrade
 $i -y install git
 
 exit
