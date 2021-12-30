@@ -1,8 +1,10 @@
 #!/bin/bash
 
 ##### This script is created in ordeer to allow you to automate the cleanup of remote branches.
-##### V.0.2
+##### V.0.3
 #####Removed git check since it won't find "whereis" on Windows' GIT bash
+#####Added git check again for usage on linux machines
+#####Added OS/Distro check
 
 # THOSE ARE THE VARIABLES FOR THE COLORS:
 GREEN="\e[32m"
@@ -15,12 +17,36 @@ cr=${cr%.}
 
 ###Check dependencies
 #Check if git is present on the system
-#git_check=$(whereis git | cut -d' ' -f2)
-#if [ ! -x "$git_check" ]; 
-#then
-#echo "$0: GIT is not available on this machine!"
-#exit
-#fi
+git_check=$(whereis git | cut -d' ' -f2)
+if [ ! -x "$git_check" ]; 
+then
+echo "$0: GIT is not available on this machine! Do you want to install it?"
+read -p "y/n" choice1
+if [ $choice1 -eq "y" ]; then
+
+#Declaring the most common package managers! 
+declare -a arr=("yum" "pakman" "apt")
+
+#For loop that checks which is the correct one
+for i in "${arr[@]}"; do
+	echo which $i 2> /dev/null
+done
+	
+#This is an "if" statement to determine the package manager
+
+if [ $? -eq 0 ]
+then echo "The package in use is $i"
+fi
+
+
+#The initialization starts from here
+$i -y update
+$i -y upgrade
+$i -y install git
+
+exit
+fi
+fi
 
 ###Arguments
 #Help
