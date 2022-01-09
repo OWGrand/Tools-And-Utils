@@ -78,7 +78,8 @@ AUTO () {
 	declare -a PROJECTS=("vidar" "baldur" "dagur" "odin-service" "payment-service") ###Should create an array for the projects' URLs?!?
 	for PROJECTS_i in "${PROJECTS[@]}"; do
 	git clone https://git.pronetdev.com/sbbackend/$PROJECTS_i.git ~/GIT/$PROJECTS_i ###I HAVE TO CHECK THE CORRECT URL NAMING CONVENTION!
-	git --git-dir="~/GIT/$PROJECTS_i/.git"
+	#git --git-dir="~/GIT/$PROJECTS_i/.git"
+	cd ~/GIT/$PROJECTS_i/
 	git fetch -a
 	git pull
 	git checkout RC-$DATE_RC
