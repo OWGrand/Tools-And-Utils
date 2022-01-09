@@ -30,6 +30,7 @@ fi
 
 ###Check dependencies
 #Check if git is present on the system
+DEP_CHECK () {
 git_check=$(whereis git | cut -d' ' -f2)
 if [ ! -x "$git_check" ];
 then
@@ -60,6 +61,7 @@ $i -y install git
 exit
 fi
 fi
+}
 
 ###Arguments
 #Help
