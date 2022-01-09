@@ -1,8 +1,9 @@
 #!/bin/bash
 
 ##### GBC - Git branch cloner script
-##### V.0.2
+##### V.0.3
 ##### v.0.2 - Added a DIRCHECK funct that prevents the script to fail if the ~/GIT dir doesn't exist
+##### V.0.3 - Fixed the "$DATE" var to format YY (ex.:22) instead of YYYY (ex.: 2022)
 
 # THOSE ARE THE VARIABLES FOR THE COLORS:
 GREEN="\e[32m"
@@ -14,7 +15,7 @@ cr=`echo $'\n.'`
 cr=${cr%.}
 
 ###This var provides the date in YY/MM/DD format as needed for the branch naming convention. Should be used on the day the branches must be created
-DATE=`printf '%(%Y-%m-%d)T\n' -1` ###Example "git checkout develop-$DATE" on 1st of Feb 2023 would result on swithcing to branch "develop-23-02-01"
+DATE=`printf '%(%Y-%m-%d)T\n' -1 | awk '{ print substr( $0, 3 ) }'` ###Example "git checkout develop-$DATE" on 1st of Feb 2023 would result on swithcing to branch "develop-23-02-01"
 
 ###~/GIT dir check
 DIRCHECK () {
