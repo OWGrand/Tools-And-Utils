@@ -1,10 +1,12 @@
 #!/bin/bash
 
 ##### GBC - Git branch cloner script
-##### V.0.4
+##### V.1.0
 ##### v.0.2 - Added a DIRCHECK funct that prevents the script to fail if the ~/GIT dir doesn't exist
 ##### V.0.3 - Fixed the "$DATE" var to format YY (ex.:22) instead of YYYY (ex.: 2022)
 ##### V.0.4 - Ready to be used as a cronjob util to create "develop" from RC branches
+##### V.0.5 - Debuging done - Translates into version "V.1.0"
+##### V.1.0
 
 # THOSE ARE THE VARIABLES FOR THE COLORS:
 GREEN="\e[32m"
@@ -105,6 +107,7 @@ case "${1}" in
 		;;
 esac
 
-
-
+#############################################
+###	Version	1.0  @V.Zlatkov a.k.a - Xerxes###
+#############################################
 
