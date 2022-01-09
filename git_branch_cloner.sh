@@ -74,9 +74,9 @@ echo "[-m| manual] - <name of the branch you want to clone> <name of the new bra
 
 AUTO () {
 	DIRCHECK
-	for $PROJECTS_i in "${PROJECTS[@]}"; do
+	for PROJECTS_i in "${PROJECTS[@]}"; do
 	rm -rf ~/GIT/$PROJECTS_i
-	git clone https://git.pronetdev.com/$PROJECTS_i.git ~/GIT/ ###I HAVE TO CHECK THE CORRECT URL NAMING CONVENTION!
+	git clone https://git.pronetdev.com/sbbackend/$PROJECTS_i.git ~/GIT/ ###I HAVE TO CHECK THE CORRECT URL NAMING CONVENTION!
 	git --git-dir=~/GIT/$PROJECTS_i/.git
 	git fetch -a
 	git pull
