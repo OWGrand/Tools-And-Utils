@@ -80,6 +80,7 @@ AUTO () {
 	git fetch -a
 	git pull
 	git checkout -b develop-$DATE_DEV RC-$DATE_RC
+	done
 }
 
 MANUAL () {
