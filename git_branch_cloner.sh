@@ -1,9 +1,10 @@
 #!/bin/bash
 
 ##### GBC - Git branch cloner script
-##### V.0.3
+##### V.0.4
 ##### v.0.2 - Added a DIRCHECK funct that prevents the script to fail if the ~/GIT dir doesn't exist
 ##### V.0.3 - Fixed the "$DATE" var to format YY (ex.:22) instead of YYYY (ex.: 2022)
+##### V.0.4 - Ready to be used as a cronjob util to create "develop" from RC branches
 
 # THOSE ARE THE VARIABLES FOR THE COLORS:
 GREEN="\e[32m"
@@ -15,14 +16,15 @@ cr=`echo $'\n.'`
 cr=${cr%.}
 
 ###This var provides the date in YY/MM/DD format as needed for the branch naming convention. Should be used on the day the branches must be created
-DATE=`printf '%(%Y-%m-%d)T\n' -1 | awk '{ print substr( $0, 3 ) }'` ###Example "git checkout develop-$DATE" on 1st of Feb 2023 would result on swithcing to branch "develop-23-02-01"
+DATE_DEV=`date +%y-%m-%d` #For "develop-YY-MM-DD"
+DATE_RC=`date -d "yesterday" '+%y-%m-%d'` #For "RC-YY-MM-DD"
+
 
 ###~/GIT dir check
 DIRCHECK () {
 if [ ! -d "~/GIT" ];
 then
 mkdir ~/GIT
-else
 fi
 }
 
@@ -78,10 +80,11 @@ AUTO () {
 	git --git-dir=~/GIT/$PROJECTS_i/.git
 	git fetch -a
 	git pull
-	git checkout -b develop-$DATE ###WOULD WORK IF THE RC BRANCH IS CREATED ON THE SAME DATE WHICH IS NOT THE CASE
+	git checkout -b develop-$DATE_DEV RC-$DATE_RC
 }
+
 MANUAL () {
-###TBA
+echo TBA
 }
 
 ###Arg phrasing
