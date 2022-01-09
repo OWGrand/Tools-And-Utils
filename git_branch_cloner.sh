@@ -1,5 +1,7 @@
 #!/bin/bash
-
+#############################################
+### Version	1.0  @V.Zlatkov a.k.a - Xerxes###
+#############################################
 ##### GBC - Git branch cloner script
 ##### V.1.0
 ##### v.0.2 - Added a DIRCHECK funct that prevents the script to fail if the ~/GIT dir doesn't exist
@@ -108,6 +110,6 @@ case "${1}" in
 esac
 
 #############################################
-###	Version	1.0  @V.Zlatkov a.k.a - Xerxes###
+### Version	1.0  @V.Zlatkov a.k.a - Xerxes###
 #############################################
 
