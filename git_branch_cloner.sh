@@ -73,10 +73,10 @@ echo "[-m| manual] - <name of the branch you want to clone> <name of the new bra
 
 AUTO () {
 	DIRCHECK
+	rm -rf ~/GIT/$PROJECTS_i
 	###Declare an array of repos
 	declare -a PROJECTS=("vidar" "baldur" "dagur" "odin-service" "payment-service") ###Should create an array for the projects' URLs?!?
 	for PROJECTS_i in "${PROJECTS[@]}"; do
-	rm -rf ~/GIT/$PROJECTS_i
 	git clone https://git.pronetdev.com/sbbackend/$PROJECTS_i.git ~/GIT/ ###I HAVE TO CHECK THE CORRECT URL NAMING CONVENTION!
 	git --git-dir=~/GIT/$PROJECTS_i/.git
 	git fetch -a
