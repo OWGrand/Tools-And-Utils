@@ -1,0 +1,5 @@
+#!/bin/bash
+DATE_DEV=`date +%y-%m-%d`
+echo develop-$DATE_DEV
+DATE_RC=`date -d "yesterday" '+%y-%m-%d'`
+echo RC-$DATE_RC
