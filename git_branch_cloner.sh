@@ -1,7 +1,8 @@
 #!/bin/bash
 
 ##### GBC - Git branch cloner script
-##### V.0.1
+##### V.0.2
+##### v.0.2 - Added a DIRCHECK funct that prevents the script to fail if the ~/GIT dir doesn't exist
 
 # THOSE ARE THE VARIABLES FOR THE COLORS:
 GREEN="\e[32m"
@@ -14,6 +15,15 @@ cr=${cr%.}
 
 ###This var provides the date in YY/MM/DD format as needed for the branch naming convention. Should be used on the day the branches must be created
 DATE=`printf '%(%Y-%m-%d)T\n' -1` ###Example "git checkout develop-$DATE" on 1st of Feb 2023 would result on swithcing to branch "develop-23-02-01"
+
+###~/GIT dir check
+DIRCHECK () {
+if [ ! -d "~/GIT" ];
+then
+mkdir ~/GIT
+else
+fi
+}
 
 ###Check dependencies
 #Check if git is present on the system
@@ -60,7 +70,7 @@ echo "[-m| manual] - <name of the branch you want to clone> <name of the new bra
 }
 
 AUTO () {
-	mkdir ~/GIT
+	DIRCHECK
 	for $PROJECTS_i in "${PROJECTS[@]}"; do
 	rm -rf ~/GIT/$PROJECTS_i
 	git clone https://git.pronetdev.com/$PROJECTS_i.git ~/GIT/ ###I HAVE TO CHECK THE CORRECT URL NAMING CONVENTION!
