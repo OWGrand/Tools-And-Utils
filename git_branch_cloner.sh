@@ -1,7 +1,7 @@
 #!/bin/bash
-#############################################
+#################################################
 ### Version	1.0  @V.Zlatkov a.k.a - Xerxes###
-#############################################
+#################################################
 ##### GBC - Git branch cloner script
 ##### V.1.1
 ##### v.0.2 - Added a DIRCHECK funct that prevents the script to fail if the ~/GIT dir doesn't exist
@@ -10,6 +10,8 @@
 ##### V.0.5 - Debuging done - Translates into version "V.1.0"
 ##### V.1.0
 ##### V.1.1 - Redone so you can use the automode to create diferent branches with the same script
+##### V.1.2 - Added the manual option
+
 
 # THOSE ARE THE VARIABLES FOR THE COLORS:
 GREEN=`\e[32m`
@@ -104,6 +106,7 @@ AUTO_RC () {
 	git fetch -a
 	git pull
 	git checkout master
+	git pull
 	git branch RC-$DATE_RC
 	git push -u origin develop-$DATE_RC
 	done
@@ -156,7 +159,7 @@ case "${1}" in
 		;;
 esac
 
-#############################################
+#################################################
 ### Version	1.0  @V.Zlatkov a.k.a - Xerxes###
-#############################################
+#################################################
 
