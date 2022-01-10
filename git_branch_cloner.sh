@@ -1,7 +1,7 @@
 #!/bin/bash
-#############################################
+#################################################
 ### Version	1.0  @V.Zlatkov a.k.a - Xerxes###
-#############################################
+#################################################
 ##### GBC - Git branch cloner script
 ##### V.1.0
 ##### v.0.2 - Added a DIRCHECK funct that prevents the script to fail if the ~/GIT dir doesn't exist
@@ -79,10 +79,9 @@ AUTO () {
 	DIRCHECK
 	rm -rf ~/GIT/$PROJECTS_i
 	###Declare an array of repos
-	declare -a PROJECTS=("vidar" "baldur" "dagur" "odin-service" "payment-service") ###Should create an array for the projects' URLs?!?
+	declare -a PROJECTS=("repo1" "repo2" "repo3" "repo4" "repo5") 
 	for PROJECTS_i in "${PROJECTS[@]}"; do
-	git clone https://git.pronetdev.com/sbbackend/$PROJECTS_i.git ~/GIT/$PROJECTS_i ###I HAVE TO CHECK THE CORRECT URL NAMING CONVENTION!
-	#git --git-dir="~/GIT/$PROJECTS_i/.git"
+	git clone https://git.repo.com/$PROJECTS_i.git ~/GIT/$PROJECTS_i
 	cd ~/GIT/$PROJECTS_i/
 	git fetch -a
 	git pull
@@ -109,7 +108,7 @@ case "${1}" in
 		;;
 esac
 
-#############################################
+#################################################
 ### Version	1.0  @V.Zlatkov a.k.a - Xerxes###
-#############################################
+#################################################
 
