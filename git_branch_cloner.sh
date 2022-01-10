@@ -87,6 +87,7 @@ AUTO () {
 	git pull
 	git checkout RC-$DATE_RC
 	git branch develop-$DATE_DEV
+	git push origin develop-$DATE_DEV
 	done
 }
 
